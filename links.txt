@@ -1,0 +1,3 @@
+https://wiki.stmicroelectronics.cn/stm32mpu/wiki/How_to_stream_camera_over_network (comment mettre la caméra en réseau local pour récupérer le flux sur le programme python)
+
+https://wiki.st.com/stm32mpu/wiki/STM32MP25_V4L2_camera_overview (comment setup la caméra)
