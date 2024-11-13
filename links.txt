@@ -1,3 +1,14 @@
 https://wiki.stmicroelectronics.cn/stm32mpu/wiki/How_to_stream_camera_over_network (comment mettre la caméra en réseau local pour récupérer le flux sur le programme python)
 
 https://wiki.st.com/stm32mpu/wiki/STM32MP25_V4L2_camera_overview (comment setup la caméra)
+
+v4l2-ctl --set-parm=30;v4l2-ctl --set-fmt-video=width=640,height=480,pixelformat=JPEG --stream-mmap --stream-count=-1 --stream-to=- 2>/dev/null | gst-play-1.0 "fd://0"
+
+
+ v4l2-ctl --set-parm=30;v4l2-ctl --set-fmt-video=width=640,height=480,pixelformat=JPEG --stream-mmap --stream-count=-1 --stream-to=- 2>/dev/null | gst-launch-1.0 fdsrc ! jpegparse ! rtpjpegpay ! udpsink host=192.168.0.218 port=5000
+
+
+https://gist.github.com/patrickelectric/443645bb0fd6e71b34c504d20d475d5a?permalink_comment_id=3575759 (gstreamer example)
+
+
+https://lifestyletransfer.com/how-to-use-gstreamer-appsrc-in-python/ (autre exemple)
