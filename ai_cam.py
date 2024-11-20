@@ -17,14 +17,14 @@ class Video():
     Attributes:
         port (int): Video UDP port
         video_codec (string): Source h264 parser
-        video_decode (string): Transform YUV (12bits) to BGR (24bits)
+        video_decode (string): Transform YUV (12bits) to BGR (24bits)soft
         video_pipe (object): GStreamer top-level pipeline
         video_sink (object): Gstreamer sink element
         video_sink_conf (string): Sink configuration
         video_source (string): Udp source ip and port
     """
 
-    def __init__(self, port=5000):
+    def __init__(self, port=5600):
         """Summary
         Args:
             port (int, optional): UDP port
@@ -36,7 +36,7 @@ class Video():
         self._frame = None
 
         # [Software component diagram](https://www.ardusub.com/software/components.html)
-        # UDP video stream (:5600)
+        # UDP video stream (:5600) folloing the guidlines of patrickelectric (might not be the best for the ST card
         self.video_source = 'udpsrc port={}'.format(self.port)
         # [Rasp raw image](http://picamera.readthedocs.io/en/release-0.7/recipes2.html#raw-image-capture-yuv-format)
         # Cam -> CSI-2 -> H264 Raw (YUV 4-4-4 (12bits) I420)
